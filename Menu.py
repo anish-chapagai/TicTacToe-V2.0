@@ -24,7 +24,7 @@ def mode_selector(mode):
 	else:
 		button_profile.game_mode.update({1:['Human vs Human',3]})
 		print("IN MODE INSIDE MODE 3")
-		import test
+		import StartGame
 
 menu_frame = LabelFrame(root, bg = default_color)
 
