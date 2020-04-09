@@ -2,7 +2,7 @@ from tkinter import *
 import button_profile
 import random
 from PIL import ImageTk, Image
-import ttt
+import Menu
 
 #colour definitions
 default_color = '#d1fcf1'
@@ -10,7 +10,7 @@ turn_highlighter = '#b4c481'
 
 
 #GUI STARTS
-root_child = ttt.root
+root_child = Menu.root
 
 #global Variables
 turn = 1
@@ -31,7 +31,7 @@ def gimme_index(but_no):
 
 def catch_menu():
 	parent_frame.pack_forget()
-	import ttt
+	import Menu
 
 
 def play_again(parent_frame):
@@ -41,10 +41,10 @@ def play_again(parent_frame):
 		for j in range(0,3):
 			button_profile.button_stat1[i][j] = ' '
 	parent_frame.pack_forget()
-	ttt.mode_selector(button_profile.game_mode.get(1))
+	Menu.mode_selector(button_profile.game_mode.get(1))
 
 #-----main engine-----human vs human------
-def update_button(ro, col, button_number, palo, buttton_name):
+def update_button(ro, col, button_number, palo, buMenuon_name):
 	global turn
 	index_x, index_y = gimme_index(button_number)
 	
@@ -53,7 +53,7 @@ def update_button(ro, col, button_number, palo, buttton_name):
 		turn = 2
 		button_profile.button_stat.update({button_number: 1})
 		button_profile.button_stat1[index_x][index_y] = 'X'
-		button_name = Button(main_frame, image = ttt.cross_img, bg = default_color, border = 0)
+		button_name = Button(main_frame, image = Menu.cross_img, bg = default_color, border = 0)
 		player1_label.configure(bg = default_color)
 		player2_label.configure(bg = turn_highlighter)
 		button_name.grid(row = ro, column = col, rowspan = 1, columnspan = 1, padx= 0, pady = 0)
@@ -63,7 +63,7 @@ def update_button(ro, col, button_number, palo, buttton_name):
 		turn = 1
 		button_profile.button_stat.update({button_number: 2})
 		button_profile.button_stat1[index_x][index_y] = '0'
-		button_name = Button(main_frame, image = ttt.circle_img, bg = default_color,border = 0, state = DISABLED)
+		button_name = Button(main_frame, image = Menu.circle_img, bg = default_color,border = 0, state = DISABLED)
 		button_mode('disabled',button_name)
 		player2_label.configure(bg = default_color)
 		player1_label.configure(bg = turn_highlighter)
